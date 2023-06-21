@@ -15,6 +15,6 @@ lua require("colorbuddy").colorscheme("sitrusbuddy.nvim")
 
 ```lua
 -- Using packer
-use { "redbug312/sitrusbuddy.nvim", requires = "tjdevries/colorbuddy.vim" }
+use { "wesleimp/sitrusbuddy.nvim", requires = "tjdevries/colorbuddy.vim" }
 require("colorbuddy").colorscheme("sitrusbuddy.nvim")
 ```
