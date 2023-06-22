@@ -6,8 +6,8 @@ v.g.colors_name = "sitrusbuddy"
 local palette = {
 	white = { gui = "#eaeaea", cterm = 250 },
 	lighgray = { gui = "#919191", cterm = 246 },
-	grey = { gui = "#4c5356", cterm = 238 },
-	darkgrey = { gui = "#34373a", cterm = 095 },
+	gray = { gui = "#4c5356", cterm = 238 },
+	darkgray = { gui = "#34373a", cterm = 095 },
 	dark = { gui = "#1c1c1c", cterm = 243 },
 	black = { gui = "#131515", cterm = 234 },
 	backgnd = { gui = "#181a1b", cterm = 233 },
@@ -34,7 +34,7 @@ Group.new("None", c.none, c.none, s.none)
 Group.new("Header", c.white, c.none, s.none)
 Group.new("Normal", c.white, c.backgnd, s.none)
 Group.new("Noise", c.lighgray, c.none, s.none)
-Group.new("Comment", c.grey, c.none, s.none)
+Group.new("Comment", c.gray, c.none, s.none)
 Group.new("NonText", c.dark, c.none, s.none)
 
 Group.new("Error", c.red, c.none, s.none)
@@ -51,13 +51,18 @@ Group.new("SitrusBlue", c.blue, c.none, s.none)
 Group.new("SitrusRed", c.red, c.none, s.none)
 Group.new("SitrusOrange", c.orange, c.none, s.none)
 Group.new("SitrusYellow", c.yellow, c.none, s.none)
-Group.new("SitrusGrey", c.grey, c.none, s.none)
+Group.new("SitrusGray", c.gray, c.none, s.none)
 Group.new("SitrusDark", c.dark, c.none, s.none)
 Group.new("SitrusBlack", c.black, c.none, s.none)
+Group.new("SitrusLimegreen", c.limegreen, c.none, s.none)
+Group.new("SitrusGreen", c.green, c.none, s.none)
+
+Group.new("SitrusBlueReverse", c.blue, c.none, s.reverse)
+Group.new("SitrusOrangeReverse", c.orange, c.none, s.reverse)
 
 Group.new("DiffAdd", c.darkgreen, c.black, s.none)
 Group.new("DiffAdded", c.darkgreen, c.black, s.none)
-Group.new("DiffChange", c.orange, c.black, s.none)
+Group.new("DiffChange", c.blue, c.black, s.none)
 Group.new("DiffDelete", c.red, c.black, s.none)
 Group.new("DiffLine", c.black, c.black, s.underline)
 Group.new("DiffRemoved", c.red, c.black, s.none)
@@ -73,13 +78,13 @@ Group.new("CurSearch", c.orange, c.none, s.reverse)
 Group.new("Search", c.yellow, c.none, s.reverse)
 Group.new("MatchParen", c.yellow, c.none, s.none)
 Group.new("Pmenu", c.none, c.dark, s.none)
-Group.new("PmenuSel", c.yellow, c.darkgrey, s.none)
+Group.new("PmenuSel", c.yellow, c.darkgray, s.none)
 Group.new("StatusLine", c.none, c.black, s.none)
 Group.new("StatusLineNC", c.black, c.black, s.none)
 Group.new("URI", c.darkgreen, c.none, s.underline)
-Group.new("Visual", c.none, c.darkgrey, s.none)
-Group.new("VisualNOS", c.none, c.darkgrey, s.none)
-Group.new("WildMenu", c.pink, c.darkgrey, s.none)
+Group.new("Visual", c.none, c.darkgray, s.none)
+Group.new("VisualNOS", c.none, c.darkgray, s.none)
+Group.new("WildMenu", c.pink, c.darkgray, s.none)
 
 -- LINKS
 
@@ -143,14 +148,14 @@ Group.link("FloatBorder", g.Noise)
 Group.new("DiagnosticUnderlineError", c.none, c.none, s.underline, c.red)
 Group.new("DiagnosticUnderlineWarn", c.none, c.none, s.underline, c.orange)
 Group.new("DiagnosticUnderlineHint", c.none, c.none, s.underline, c.blue)
-Group.new("DiagnosticUnderlineInfo", c.none, c.none, s.underline, c.grey)
+Group.new("DiagnosticUnderlineInfo", c.none, c.none, s.underline, c.gray)
 
 Group.link("DiagnosticError", g.Error)
 Group.link("DiagnosticWarn", g.Warning)
 Group.link("DiagnosticHint", g.Hint)
 Group.link("DiagnosticInfo", g.Comment)
 
-Group.link("PackerHash", g.Noise)
+Group.link("PackerHash", g.SitrusYellow)
 
 Group.link("GitSignsAdd", g.DiffAdd)
 Group.link("GitSignsChange", g.DiffChange)
@@ -179,6 +184,14 @@ Group.link("helpHyperTextEntry", g.Number)
 Group.link("helpIgnore", g.NonText)
 Group.link("helpOption", g.String)
 Group.link("helpSectionDelim", g.Noise)
+
+----------------------------------------
+-- Netrw
+----------------------------------------
+Group.link("netrwLink", g.SitrusGray)
+Group.link("netrwSymLink", g.SitrusBlue)
+Group.link("netrwExe", g.SitrusYellow)
+Group.link("netrwComment", g.SitrusGray)
 
 ----------------------------------------
 -- TreeSitter
@@ -290,3 +303,26 @@ Group.link("@lsp.type.variable", g.Normal)
 
 Group.link("elixirDocString", g.Comment)
 Group.link("elixirModuleDeclaration", g.SitrusYellow)
+
+----------------------------------------------
+-- Express line
+----------------------------------------------
+
+Group.new("ElNormal", c.darkgray, c.white, s.reverse)
+Group.link("ElCommand", g.SitrusYellow)
+Group.link("ElCommandCV", g.SitrusYellow)
+Group.link("ElCommandEx", g.SitrusYellow)
+Group.link("ElConfirm", g.SitrusYellow)
+Group.link("ElInsertCompletion", g.SitrusBlue)
+Group.link("ElInsert", g.SitrusBlueReverse)
+Group.link("ElMore", g.SitrusGray)
+Group.link("ElNormalOperatorPending", g.Normal)
+Group.link("ElPrompt", g.Normal)
+Group.link("ElVisual", g.SitrusOrangeReverse)
+Group.link("ElVisualBlock", g.SitrusOrange)
+Group.link("ElVisualLine", g.SitrusOrangeReverse)
+Group.link("ElVirtualReplace", g.SitrusOrangeReverse)
+Group.link("ElError", g.SitrusRed)
+Group.link("ElWarning", g.SitrusOrange)
+Group.link("ElInformation", g.SitrusGray)
+Group.link("ElHint", g.SitrusBlue)
