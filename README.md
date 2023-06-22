@@ -1,6 +1,6 @@
 # Sitrusbuddy
 
-Another neovim 256-color theme using [colorbuddy].
+Another Neovim color theme using [colorbuddy].
 
 [colorbuddy]: https://github.com/tjdevries/colorbuddy.nvim
 
