@@ -3,24 +3,6 @@ local v = vim
 
 v.g.colors_name = "sitrusbuddy"
 
--- |    lemon    |  #FAC03B  |
--- |   special   |  #ffb354  |
--- |   preproc   |  #a29bfe  |
--- |  function   |  #a3db81  |
--- | foreground  |  #d1d1d1  |
--- |   fg\_alt   |  #a1a1a1  |
--- | statusline  |  #34373a  |
--- |   darker    |  #131515  |
--- | background  |  #181a1b  |
--- |  light\_bg  |  #1d2023  |
--- | lighter\_bg |  #242629  |
--- |   comment   |  #4c5356  |
--- |  selection  |  #2D3032  |
--- |   string    |  #37ad82  |
--- |    type     |  #7398dd  |
--- |  constant   |  #ca70d6  |
--- |    error    |  #c15959  |
-
 local palette = {
 	white = { gui = "#eaeaea", cterm = 250 },
 	lighgray = { gui = "#919191", cterm = 246 },

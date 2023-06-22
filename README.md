@@ -4,6 +4,16 @@ Another neovim 256-color theme using [colorbuddy].
 
 [colorbuddy]: https://github.com/tjdevries/colorbuddy.nvim
 
+## Screenshots
+
+### Lua
+
+![sitrusbuddy-javascript](media/lua.png)
+
+### Rust
+
+![sitrusbuddy-rust](media/rust.png)
+
 ## Installation
 
 ```vim
@@ -15,6 +25,6 @@ lua require("colorbuddy").colorscheme("sitrusbuddy.nvim")
 
 ```lua
 -- Using packer
-use { "wesleimp/sitrusbuddy.nvim", requires = "tjdevries/colorbuddy.vim" }
-require("colorbuddy").colorscheme("sitrusbuddy.nvim")
+use ({ "wesleimp/sitrusbuddy.nvim", requires = "tjdevries/colorbuddy.vim" })
+require("colorbuddy").colorscheme("sitrusbuddy")
 ```
