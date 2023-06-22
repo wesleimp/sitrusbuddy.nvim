@@ -22,8 +22,8 @@ v.g.colors_name = "sitrusbuddy"
 -- |    error    |  #c15959  |
 
 local palette = {
-	white = { gui = "#d1d1d1", cterm = 250 },
-	lighgray = { gui = "#a1a1a1", cterm = 246 },
+	white = { gui = "#eaeaea", cterm = 250 },
+	lighgray = { gui = "#919191", cterm = 246 },
 	grey = { gui = "#4c5356", cterm = 238 },
 	darkgrey = { gui = "#34373a", cterm = 095 },
 	dark = { gui = "#1c1c1c", cterm = 243 },
@@ -51,7 +51,7 @@ end
 Group.new("None", c.none, c.none, s.none)
 Group.new("Header", c.white, c.none, s.none)
 Group.new("Normal", c.white, c.backgnd, s.none)
-Group.new("Noise", c.yellow, c.none, s.none)
+Group.new("Noise", c.lighgray, c.none, s.none)
 Group.new("Comment", c.grey, c.none, s.none)
 Group.new("NonText", c.dark, c.none, s.none)
 
@@ -71,15 +71,15 @@ Group.new("SitrusOrange", c.orange, c.none, s.none)
 Group.new("SitrusYellow", c.yellow, c.none, s.none)
 Group.new("SitrusGrey", c.grey, c.none, s.none)
 Group.new("SitrusDark", c.dark, c.none, s.none)
-Group.new("SitrusLimegreen", c.limegreen, c.none, s.none)
+Group.new("SitrusBlack", c.black, c.none, s.none)
 
-Group.new("DiffAdd", c.darkgreen, c.none, s.none)
-Group.new("DiffAdded", c.darkgreen, c.none, s.none)
-Group.new("DiffChange", c.orange, c.none, s.none)
-Group.new("DiffDelete", c.red, c.none, s.none)
-Group.new("DiffLine", c.black, c.none, s.underline)
-Group.new("DiffRemoved", c.red, c.none, s.none)
-Group.new("DiffText", c.brown, c.none, s.none)
+Group.new("DiffAdd", c.darkgreen, c.black, s.none)
+Group.new("DiffAdded", c.darkgreen, c.black, s.none)
+Group.new("DiffChange", c.orange, c.black, s.none)
+Group.new("DiffDelete", c.red, c.black, s.none)
+Group.new("DiffLine", c.black, c.black, s.underline)
+Group.new("DiffRemoved", c.red, c.black, s.none)
+Group.new("DiffText", c.brown, c.black, s.none)
 
 Group.new("SpellBad", c.red, c.none, s.undercurl)
 Group.new("SpellCap", c.orange, c.none, s.undercurl)
@@ -109,10 +109,10 @@ Group.link("Statement", g.Normal)
 Group.link("Type", g.Noise)
 Group.link("TypeDef", g.Noise)
 
-Group.link("Conditional", g.Noise)
+Group.link("Conditional", g.SitrusYellow)
 Group.link("Exception", g.Noise)
 Group.link("Include", g.Noise)
-Group.link("Keyword", g.SitrusRed)
+Group.link("Keyword", g.SitrusYellow)
 Group.link("Macro", g.Noise)
 Group.link("Operator", g.Noise)
 Group.link("PreProc", g.Noise)
@@ -137,13 +137,13 @@ Group.link("Question", g.Warning)
 Group.link("WarningMsg", g.Warning)
 Group.link("HealthSuccess", g.String)
 
-Group.link("ColorColumn", g.CursorLine)
 Group.link("CursorLine", g.StatusLine)
-Group.link("CursorLineNr", g.Noise)
+Group.link("ColorColumn", g.CursorLine)
+Group.link("CursorLineNr", g.SitrusYellow)
 Group.link("EndOfBuffer", g.NonText)
 Group.link("FoldColumn", g.LineNr)
 Group.link("Folded", g.NonText)
-Group.link("LineNr", g.Normal)
+Group.link("LineNr", g.Noise)
 Group.link("SignColumn", g.CursorLine)
 Group.link("VertSplit", g.LineNr)
 Group.link("Whitespace", g.NonText)
@@ -154,14 +154,14 @@ Group.link("TabLineFill", g.Normal)
 Group.link("TabLineSel", g.Special)
 
 Group.link("NvimInternalError", g.Error)
-Group.link("FloatBorder", g.NonText)
+Group.link("FloatBorder", g.Noise)
 
 -- PLUGIN SPECIFIC
 
 Group.new("DiagnosticUnderlineError", c.none, c.none, s.underline, c.red)
 Group.new("DiagnosticUnderlineWarn", c.none, c.none, s.underline, c.orange)
-Group.new("DiagnosticUnderlineHint", c.none, c.none, s.underline)
-Group.new("DiagnosticUnderlineInfo", c.none, c.none, s.underline)
+Group.new("DiagnosticUnderlineHint", c.none, c.none, s.underline, c.blue)
+Group.new("DiagnosticUnderlineInfo", c.none, c.none, s.underline, c.grey)
 
 Group.link("DiagnosticError", g.Error)
 Group.link("DiagnosticWarn", g.Warning)
@@ -183,8 +183,8 @@ Group.link("TelescopeSelection", g.SitrusOrange)
 Group.link("LspInlayHint", g.NonText)
 
 Group.link("CmpItemAbbr", g.Normal)
-Group.link("CmpItemAbbrMatch", g.Noise)
-Group.link("CmpItemAbbrMatchFuzzy", g.Noise)
+Group.link("CmpItemAbbrMatch", g.SitrusYellow)
+Group.link("CmpItemAbbrMatchFuzzy", g.SitrusYellow)
 Group.link("CmpItemKind", g.Comment)
 Group.link("CmpItemKindText", g.SitrusOrange)
 Group.link("CmpItemMenu", g.SitrusPurple)
@@ -230,7 +230,7 @@ Group.link("@function.macro", g.Macro)
 Group.link("@method", g.Function)
 Group.link("@method.call", g.Function)
 
-Group.link("@constructor", g.Special)
+Group.link("@constructor", g.Normal)
 Group.link("@parameter", g.Identifier)
 
 Group.link("@keyword", g.Keyword)
@@ -257,10 +257,10 @@ Group.link("@field", g.Identifier)
 Group.link("@property", g.Identifier)
 
 Group.link("@variable", g.Normal)
-Group.link("@variable.builtin", g.Special)
+Group.link("@variable.builtin", g.Normal)
 
 Group.link("@constant", g.Constant)
-Group.link("@constant.builtin", g.Special)
+Group.link("@constant.builtin", g.Normal)
 Group.link("@constant.macro", g.Define)
 
 Group.link("@namespace", g.Normal)
@@ -294,12 +294,12 @@ Group.link("@lsp.type.class", g.Noise)
 Group.link("@lsp.type.decorator", g.Identifier)
 Group.link("@lsp.type.enum", g.Type)
 Group.link("@lsp.type.enumMember", g.Constant)
-Group.link("@lsp.type.function", g.Function)
+Group.link("@lsp.type.function", g.Noise)
 Group.link("@lsp.type.interface", g.Keyword)
 Group.link("@lsp.type.macro", g.Macro)
 Group.link("@lsp.type.method", g.Function)
 Group.link("@lsp.type.namespace", g.Noise)
-Group.link("@lsp.type.parameter", g.Identifier)
+Group.link("@lsp.type.parameter", g.Normal)
 Group.link("@lsp.type.property", g.Identifier)
 Group.link("@lsp.type.struct", g.Noise)
 Group.link("@lsp.type.type", g.Type)
@@ -307,6 +307,4 @@ Group.link("@lsp.type.typeParameter", g.Typedef)
 Group.link("@lsp.type.variable", g.Normal)
 
 Group.link("elixirDocString", g.Comment)
--- elixirStringDelimiter = { link = "GruvboxGreen" },
--- elixirInterpolationDelimiter = { link = "GruvboxAqua" },
 Group.link("elixirModuleDeclaration", g.SitrusYellow)
