@@ -11,6 +11,7 @@ local palette = {
 	dark = { gui = "#1c1c1c", cterm = 243 },
 	black = { gui = "#131515", cterm = 234 },
 	backgnd = { gui = "#181a1b", cterm = 233 },
+	backgnd_alt = { gui = "#2f3132", cterm = 233 },
 
 	darkgreen = { gui = "#37ad82", cterm = 065 }, -- darkgreen
 	limegreen = { gui = "#a3db81", cterm = 108 }, -- limegreen
@@ -60,13 +61,13 @@ Group.new("SitrusGreen", c.green, c.none, s.none)
 Group.new("SitrusBlueReverse", c.blue, c.none, s.reverse)
 Group.new("SitrusOrangeReverse", c.orange, c.none, s.reverse)
 
-Group.new("DiffAdd", c.darkgreen, c.black, s.none)
-Group.new("DiffAdded", c.darkgreen, c.black, s.none)
-Group.new("DiffChange", c.blue, c.black, s.none)
-Group.new("DiffDelete", c.red, c.black, s.none)
-Group.new("DiffLine", c.black, c.black, s.underline)
-Group.new("DiffRemoved", c.red, c.black, s.none)
-Group.new("DiffText", c.brown, c.black, s.none)
+Group.new("DiffAdd", c.darkgreen, c.backgnd_alt, s.none)
+Group.new("DiffAdded", c.darkgreen, c.backgnd_alt, s.none)
+Group.new("DiffChange", c.blue, c.backgnd_alt, s.none)
+Group.new("DiffDelete", c.red, c.backgnd_alt, s.none)
+Group.new("DiffLine", c.black, c.backgnd_alt, s.underline)
+Group.new("DiffRemoved", c.red, c.backgnd_alt, s.none)
+Group.new("DiffText", c.brown, c.backgnd_alt, s.none)
 
 Group.new("SpellBad", c.red, c.none, s.undercurl)
 Group.new("SpellCap", c.orange, c.none, s.undercurl)
@@ -77,8 +78,8 @@ Group.new("IncSearch", c.orange, c.none, s.reverse)
 Group.new("CurSearch", c.orange, c.none, s.reverse)
 Group.new("Search", c.yellow, c.none, s.reverse)
 Group.new("MatchParen", c.yellow, c.none, s.none)
-Group.new("Pmenu", c.none, c.dark, s.none)
-Group.new("PmenuSel", c.yellow, c.darkgray, s.none)
+Group.new("Pmenu", c.none, c.backgnd_alt, s.none)
+Group.new("PmenuSel", c.yellow, c.dark, s.none)
 Group.new("StatusLine", c.none, c.black, s.none)
 Group.new("StatusLineNC", c.black, c.black, s.none)
 Group.new("URI", c.darkgreen, c.none, s.underline)
@@ -126,16 +127,17 @@ Group.link("HealthSuccess", g.String)
 
 Group.link("CursorLine", g.StatusLine)
 Group.link("ColorColumn", g.CursorLine)
+Group.link("LineNr", g.SitrusGray)
 Group.link("CursorLineNr", g.SitrusYellow)
 Group.link("EndOfBuffer", g.NonText)
 Group.link("FoldColumn", g.LineNr)
 Group.link("Folded", g.NonText)
-Group.link("LineNr", g.Noise)
 Group.link("SignColumn", g.CursorLine)
 Group.link("VertSplit", g.LineNr)
 Group.link("Whitespace", g.NonText)
 
-Group.link("NormalFloat", g.Normal)
+Group.new("NormalFloat", c.white, c.backgnd_alt, s.none)
+
 Group.link("TabLine", g.Normal)
 Group.link("TabLineFill", g.Normal)
 Group.link("TabLineSel", g.Special)
@@ -169,10 +171,10 @@ Group.link("TelescopeSelection", g.SitrusOrange)
 
 Group.link("LspInlayHint", g.NonText)
 
-Group.link("CmpItemAbbr", g.Normal)
+Group.link("CmpItemAbbr", g.NormalFloat)
 Group.link("CmpItemAbbrMatch", g.SitrusYellow)
 Group.link("CmpItemAbbrMatchFuzzy", g.SitrusYellow)
-Group.link("CmpItemKind", g.Comment)
+Group.link("CmpItemKind", g.SitrusBlue)
 Group.link("CmpItemKindText", g.SitrusOrange)
 Group.link("CmpItemMenu", g.SitrusPurple)
 
