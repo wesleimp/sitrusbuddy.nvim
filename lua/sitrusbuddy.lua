@@ -1,4 +1,9 @@
-local Color, c, Group, g, s = require("colorbuddy").setup()
+local colorbuddy = require("colorbuddy")
+local Color = colorbuddy.Color
+local Group = colorbuddy.Group
+local c = colorbuddy.colors
+local g = colorbuddy.groups
+local s = colorbuddy.styles
 local v = vim
 
 v.g.colors_name = "sitrusbuddy"
